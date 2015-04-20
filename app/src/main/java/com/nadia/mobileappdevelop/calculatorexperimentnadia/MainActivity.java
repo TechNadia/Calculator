@@ -76,16 +76,19 @@ public class MainActivity extends ActionBarActivity{
 
     public void one(View view){
         str = str + "1";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void two(View view){
         str = str + "2";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void three(View view){
         str = str + "3";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
@@ -96,31 +99,37 @@ public class MainActivity extends ActionBarActivity{
     }
     public void five(View view){
         str = str + "5";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void six(View view){
         str = str + "6";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void seven(View view){
         str = str + "7";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void eight(View view){
         str = str + "8";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void nine(View view){
         str = str + "9";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
     public void zero(View view){
         str = str + "0";
+        str = checkZero(str);
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
     }
@@ -191,9 +200,10 @@ public class MainActivity extends ActionBarActivity{
             number2 = Double.valueOf(str.substring(index+1, str.length()));
             res = number1/number2;
             tvResult.setText(number1 + "/" + number2 + "=" + res.toString());
-            Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
+            String msg = "Index: " + index + "\nnumber1: " + number1
                     + "\nnumber2: " + number2
-                    + "\nsum: " + res, Toast.LENGTH_LONG).show();
+                    + "\nsum: " + res;
+            showMessage(msg);
         }
 
         str = "";
@@ -206,5 +216,35 @@ public class MainActivity extends ActionBarActivity{
     public void clear(View v){
         str = "";
         etFirstNumber.getText().clear();
+    }
+    public void delete(View v){
+        showMessage(str);
+        str = removeLastCharacter(str);
+        showMessage(str);
+        etFirstNumber.setText(str);
+
+    }
+    private String removeLastCharacter(String string){
+        if (string.length()>0){
+            string = string.substring(0, string.length()-1);
+        }
+        return string;
+    }
+    private String checkZero(String string){
+        if (string.length()>1){
+            if (String.valueOf(string.charAt(0)).equals("0") &&
+                    !String.valueOf(string.charAt(1)).equals(".")){
+                string = string.substring(1, string.length());
+            }
+            else if (String.valueOf(string.charAt(0)).equals("0") &&
+                    String.valueOf(string.charAt(1)).equals("0")){
+                string = string.substring(1, string.length());
+            }
+        }
+
+        return string;
+    }
+    private void showMessage(String msg){
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
