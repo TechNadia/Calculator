@@ -217,10 +217,24 @@ public class MainActivity extends ActionBarActivity{
         str = "";
         etFirstNumber.getText().clear();
     }
+
+    public void signConvert(View v){
+        if (String.valueOf(str.charAt(0)) == "-"){
+            showMessage("Its minus");
+            str = "" + str.substring(1, str.length());
+            showMessage(str);
+            showMessage(String.valueOf(str.charAt(0)));
+        }
+        else if (String.valueOf(str.charAt(0)) != "-"){
+            showMessage("Its not minus");
+            str = "-" + str.substring(0, str.length());
+            showMessage(str);
+        }
+    }
     public void delete(View v){
-        showMessage(str);
+        //showMessage(str);
         str = removeLastCharacter(str);
-        showMessage(str);
+        //showMessage(str);
         etFirstNumber.setText(str);
 
     }
