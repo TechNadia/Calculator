@@ -17,13 +17,73 @@
         android:layout_height="40dp"
         android:layout_below="@+id/etFirstNumber"/>
     <LinearLayout
-        android:id="@+id/lnrFirstRow"
+        android:id="@+id/lnrFirstToolRow"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/tvResult"
         android:orientation="horizontal"
         android:gravity="center_horizontal"
         android:layout_marginTop="8dp">
+        <Button
+            android:id="@+id/btnSquare"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="x^2"
+            android:layout_gravity="left"
+            android:onClick="square"
+            android:background="@color/background_floating_material_dark"
+            android:textColor="#fff"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="2"
+            android:layout_gravity="center_horizontal"
+            android:onClick="two"
+            android:background="@color/background_floating_material_dark"
+            android:textColor="#fff"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="3"
+            android:layout_gravity="right"
+            android:onClick="three"
+            android:background="@color/background_floating_material_dark"
+            android:textColor="#fff"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="DEL"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:background="#d03b23"
+            android:textColor="#fff"
+            android:onClick="delete"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="AC"
+            android:layout_gravity="left"
+            android:background="#d03b23"
+            android:textColor="#fff"
+            android:onClick="clear"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lnrFirstRow"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/lnrFirstToolRow"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="4dp">
         <Button
             android:id="@+id/btnOne"
             android:layout_width="0dp"

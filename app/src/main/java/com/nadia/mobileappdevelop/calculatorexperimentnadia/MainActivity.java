@@ -170,9 +170,9 @@ public class MainActivity extends ActionBarActivity{
             number2 = Double.valueOf(str.substring(index+1, str.length()));
             res = number1+number2;
             tvResult.setText(number1 + "+" + number2 + "=" + res.toString());
-            Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
+            /*Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
                     + "\nnumber2: " + number2
-                    + "\nsum: " + res, Toast.LENGTH_LONG).show();
+                    + "\nsum: " + res, Toast.LENGTH_LONG).show();*/
         }
         else if (minus){
             index = str.indexOf("-");
@@ -180,9 +180,9 @@ public class MainActivity extends ActionBarActivity{
             number2 = Double.valueOf(str.substring(index + 1, str.length()));
             res = number1-number2;
             tvResult.setText(number1 + "-" + number2 + "=" + res.toString());
-            Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
+            /*Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
                     + "\nnumber2: " + number2
-                    + "\nsum: " + res, Toast.LENGTH_LONG).show();
+                    + "\nsum: " + res, Toast.LENGTH_LONG).show();*/
         }
         else if (multiply){
             index = str.indexOf("*");
@@ -190,9 +190,9 @@ public class MainActivity extends ActionBarActivity{
             number2 = Double.valueOf(str.substring(index+1, str.length()));
             res = number1*number2;
             tvResult.setText(number1 + "*" + number2 + "=" + res.toString());
-            Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
+            /*Toast.makeText(getApplicationContext(), "Index: " + index + "\nnumber1: " + number1
                     + "\nnumber2: " + number2
-                    + "\nsum: " + res, Toast.LENGTH_LONG).show();
+                    + "\nsum: " + res, Toast.LENGTH_LONG).show();*/
         }
         else if (divide){
             index = str.indexOf("/");
@@ -200,10 +200,10 @@ public class MainActivity extends ActionBarActivity{
             number2 = Double.valueOf(str.substring(index+1, str.length()));
             res = number1/number2;
             tvResult.setText(number1 + "/" + number2 + "=" + res.toString());
-            String msg = "Index: " + index + "\nnumber1: " + number1
+            /*String msg = "Index: " + index + "\nnumber1: " + number1
                     + "\nnumber2: " + number2
                     + "\nsum: " + res;
-            showMessage(msg);
+            showMessage(msg);*/
         }
 
         str = "";
@@ -219,22 +219,20 @@ public class MainActivity extends ActionBarActivity{
     }
 
     public void signConvert(View v){
-        if (String.valueOf(str.charAt(0)) == "-"){
-            showMessage("Its minus");
-            str = "" + str.substring(1, str.length());
-            showMessage(str);
-            showMessage(String.valueOf(str.charAt(0)));
+        if (str.length() > 0){
+            if (String.valueOf(str.charAt(0)).equals("-")){
+                str = "" + str.substring(1, str.length());
+                etFirstNumber.setText(str);
+            }
+            else if (!String.valueOf(str.charAt(0)).equals("-")){
+                str = "-" + str.substring(0, str.length());
+                etFirstNumber.setText(str);
+            }
         }
-        else if (String.valueOf(str.charAt(0)) != "-"){
-            showMessage("Its not minus");
-            str = "-" + str.substring(0, str.length());
-            showMessage(str);
-        }
+
     }
     public void delete(View v){
-        //showMessage(str);
         str = removeLastCharacter(str);
-        //showMessage(str);
         etFirstNumber.setText(str);
 
     }
