@@ -2,6 +2,7 @@ package com.nadia.mobileappdevelop.calculatorexperimentnadia;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.FloatMath;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -152,6 +153,12 @@ public class MainActivity extends ActionBarActivity{
         str = str + "/";
         etFirstNumber.getText().clear();
         etFirstNumber.setText(str);
+    }
+
+    public void square(View v){
+        Float number = Float.valueOf(str);
+        tvResult.setText(String.valueOf(number * number));
+
     }
     public void equal(View view){
 
